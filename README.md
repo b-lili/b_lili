@@ -1,1 +1,2 @@
-# webprog2
+A SütiMester egy olyan dinamikus weboldal lesz, melynek segítségével recepteket tárolhatunk el egy adatbázisba, majd azokat vissza is kereshetjük. A felhasználók között cukrász végzettség tesz majd különbséget. Ezzel a felhasználói jogosultságokat is hasznosítom. 
+Az adatbázishoz csak regisztrált felhasználó adhat hozzá új rekordot/rekordokat. Az oldal látogatói csak listázni tudják az adatbázisban tárolt recepteket.
