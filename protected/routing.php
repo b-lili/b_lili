@@ -11,6 +11,8 @@ switch ($_GET['P']) {
 
 	case 'list_reciept': IsUserLoggedIn() ? require_once PROTECTED_DIR.'reciept/list.php' : header('Location: index.php'); break;
 
+	case 'modify_reciept': IsUserLoggedIn() ? require_once PROTECTED_DIR.'reciept/modifyReciept.php' : header('Location: index.php'); break;
+
 	case 'login': !IsUserLoggedIn() ? require_once PROTECTED_DIR.'user/login.php' : header('Location: index.php'); break;
 
 	case 'register': !IsUserLoggedIn() ? require_once PROTECTED_DIR.'user/register.php' : header('Location: index.php'); break;
