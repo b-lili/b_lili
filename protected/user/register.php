@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register'])) {
 	} else if(!UserRegister($postData['email'], $postData['password'], $postData['fname'], $postData['lname'])) {
 		echo "Sikertelen regisztráció!";
 		//var_dump($postData);
-		var_dump($_POST);
+		//var_dump($_POST);
 	}
 
 	$postData['password'] = $postData['password1'] = "";

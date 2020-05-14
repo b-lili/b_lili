@@ -4,28 +4,26 @@
 
 	<?php
 	if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['addSutemeny'])) {
-		$postData = [
+		$postData = [ 
 			'sutiNev' => $_POST['sutiNev'],
 			'hozzavalok' => $_POST['hozzavalok'],
 			'elkeszitesi_ido' => $_POST['elkeszitesi_ido'],
 			'nehezseg' => $_POST['nehezseg'],
-			'szerzo_id' => $_POST['szerzo_id']
+			'szerzo_id' => $_SESSION['uid'] 
 		];
 
-		if(empty($postData['sutiNev']) || empty($postData['hozzavalok']) || empty($postData['elkeszitesi_ido']) || empty($postData['szerzo_id']) || $postData['nehezseg'] < 0 && $postData['nehezseg'] > 2) {
+		if(empty($postData['sutiNev']) || empty($postData['hozzavalok']) || empty($postData['elkeszitesi_ido']) || $postData['nehezseg'] < 0 && $postData['nehezseg'] > 2) {
 			echo "Hiányzó adat(ok)!";
-		}// else if(!filter_var($postData['elkeszitesi_ido'], FILTER_VALIDATE_elkeszitesi_ido)) {
-		//	echo "Hibás elkészítési idő!";
-		//}
+		}
 		else {
 			$query = "INSERT INTO sutemeny (sutiNev, hozzavalok, elkeszitesi_ido, nehezseg, szerzo_id) VALUES (:sutiNev, :hozzavalok, :elkeszitesi_ido, :nehezseg, :szerzo_id)";
-
+			
 			$params = [
 				':sutiNev' => $postData['sutiNev'],
 				':hozzavalok' => $postData['hozzavalok'],
 				':elkeszitesi_ido' => $postData['elkeszitesi_ido'],
 				':nehezseg' => $postData['nehezseg'],
-				':szerzo_id' => $postData['szerzo_id']
+				':szerzo_id' => $_SESSION['uid']  
 			];
 			
 			require_once DATABASE_CONTROLLER;
@@ -65,14 +63,14 @@
 		    	</select>
 		  	</div>
 		</div>
-
+	<!-- 
 		<div class="form-row">
 			<div class="form-group col-md-12">
 				<label for="szerzo_id">Szerző</label>
 				<input type="text" class="form-control" id="szerzo_id" name="szerzo_id">
 			</div>
 		</div>
-
+	-->
 		<button type="submit" class="btn btn-primary" name="addSutemeny">Recept hozzáadása</button>
 	</form>
 <?php endif; ?>

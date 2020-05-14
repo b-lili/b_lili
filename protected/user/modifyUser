@@ -1,0 +1,14 @@
+<?php
+else {
+				$query = "UPDATE user SET permission = :permission WHERE id = :id";
+				$params = [
+					':permission' => $_GET['u'];
+					':id' => $_GET['u'],
+				];
+				var_dump($params);
+				require_once DATABASE_CONTROLLER;
+				//if(!executeDML($query, $params)) {
+				//	echo "Hiba módosítás közben!";
+				}
+			}
+?>
